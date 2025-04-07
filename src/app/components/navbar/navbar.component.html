@@ -1,0 +1,163 @@
+<!-- Navigation Bar -->
+<nav
+  class="flex items-center justify-between p-4 bg-card border-b border-border relative z-50"
+>
+  <div class="flex items-center gap-6">
+    <a [routerLink]="['/']">
+      <span class="text-xl font-bold tracking-tighter">JobPortal</span>
+    </a>
+    <!-- Desktop Menu -->
+    <div class="hidden md:flex items-center gap-6">
+      <a
+        [routerLink]="['/jobs']"
+        class="text-muted-foreground hover:text-foreground"
+        >Jobs</a
+      >
+      <a
+        [routerLink]="['/favorites']"
+        class="text-muted-foreground hover:text-foreground"
+        >Favorites</a
+      >
+      <a
+        [routerLink]="['/applications']"
+        class="text-muted-foreground hover:text-foreground"
+        >Applied Jobs</a
+      >
+    </div>
+  </div>
+
+  <!-- Desktop Actions -->
+  <div class="hidden md:flex gap-2">
+    <button
+      class="p-2 rounded-full hover:bg-muted"
+      aria-label="Toggle Theme"
+      (click)="toggleTheme()"
+    >
+      <svg
+        class="w-5 h-5"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
+        ></path>
+      </svg>
+    </button>
+    <button class="p-2 rounded-full hover:bg-muted" aria-label="Notifications">
+      <svg
+        class="w-5 h-5"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
+        ></path>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile Menu Button -->
+  <button
+    class="md:hidden p-2 rounded-full hover:bg-muted"
+    (click)="toggleMobileMenu()"
+    aria-label="Toggle Menu"
+  >
+    <svg
+      class="w-6 h-6"
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        *ngIf="!isMobileMenuOpen"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M4 6h16M4 12h16M4 18h16"
+      ></path>
+      <path
+        *ngIf="isMobileMenuOpen"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M6 18L18 6M6 6l12 12"
+      ></path>
+    </svg>
+  </button>
+
+  <!-- Mobile Menu -->
+  <div
+    *ngIf="isMobileMenuOpen"
+    class="absolute top-full left-0 right-0 bg-card border-b border-border md:hidden z-50 shadow-lg"
+  >
+    <div class="flex flex-col p-4 gap-4">
+      <a
+        [routerLink]="['/jobs']"
+        class="text-muted-foreground hover:text-foreground py-2"
+        >Jobs</a
+      >
+      <a
+        [routerLink]="['/favorites']"
+        class="text-muted-foreground hover:text-foreground py-2"
+        >Favorites</a
+      >
+      <a
+        [routerLink]="['/applications']"
+        class="text-muted-foreground hover:text-foreground py-2"
+        >Applied Jobs</a
+      >
+      <div class="flex gap-4 pt-2 border-t border-border">
+        <button
+          class="p-2 rounded-full hover:bg-muted"
+          aria-label="Toggle Theme"
+          (click)="toggleTheme()"
+        >
+          <svg
+            class="w-5 h-5"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
+            ></path>
+          </svg>
+        </button>
+        <button
+          class="p-2 rounded-full hover:bg-muted"
+          aria-label="Notifications"
+        >
+          <svg
+            class="w-5 h-5"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
+            ></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>

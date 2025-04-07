@@ -1,0 +1,242 @@
+[
+  {
+    "id": "1",
+    "title": "Frontend Developer",
+    "company": "TechCorp",
+    "location": "Remote",
+    "category": "Technology",
+    "experience": "Mid Level",
+    "salary": "$80,000 - $100,000",
+    "description": "We are looking for a skilled Frontend Developer to join our team. You will be responsible for building user interfaces and implementing web designs.",
+    "responsibilities": [
+      "Develop new user-facing features",
+      "Build reusable code and libraries for future use",
+      "Ensure the technical feasibility of UI/UX designs",
+      "Optimize application for maximum speed and scalability"
+    ],
+    "requirements": [
+      "3+ years experience with HTML, CSS, and JavaScript",
+      "Proficiency with React.js and Next.js",
+      "Understanding of server-side rendering and RESTful APIs",
+      "Experience with responsive design"
+    ],
+    "postedDate": "2024-05-15",
+    "logo": "/placeholder.svg?height=80&width=80"
+  },
+  {
+    "id": "2",
+    "title": "UX Designer",
+    "company": "DesignHub",
+    "location": "San Francisco",
+    "category": "Design",
+    "experience": "Senior Level",
+    "salary": "$110,000 - $130,000",
+    "description": "We're seeking a talented UX Designer to create amazing user experiences. The ideal candidate should have a strong portfolio demonstrating their design skills.",
+    "responsibilities": [
+      "Create user flows, wireframes, prototypes, and mockups",
+      "Conduct user research and testing",
+      "Collaborate with product managers and engineers",
+      "Design intuitive interfaces for web and mobile applications"
+    ],
+    "requirements": [
+      "5+ years of UX design experience",
+      "Proficiency with design tools like Figma and Adobe XD",
+      "Strong portfolio showcasing design projects",
+      "Experience with user research methodologies"
+    ],
+    "postedDate": "2024-05-10",
+    "logo": "/placeholder.svg?height=80&width=80"
+  },
+  {
+    "id": "3",
+    "title": "Marketing Manager",
+    "company": "GrowthCo",
+    "location": "New York",
+    "category": "Marketing",
+    "experience": "Senior Level",
+    "salary": "$90,000 - $120,000",
+    "description": "We are looking for a Marketing Manager to lead our marketing efforts and drive brand awareness and customer acquisition.",
+    "responsibilities": [
+      "Develop and implement marketing strategies",
+      "Manage social media campaigns and content",
+      "Analyze market trends and competitor activities",
+      "Track and report on marketing performance metrics"
+    ],
+    "requirements": [
+      "5+ years of marketing experience",
+      "Experience with digital marketing channels",
+      "Strong analytical and communication skills",
+      "Bachelor's degree in Marketing or related field"
+    ],
+    "postedDate": "2024-05-05",
+    "logo": "/placeholder.svg?height=80&width=80"
+  },
+  {
+    "id": "4",
+    "title": "Backend Developer",
+    "company": "ServerStack",
+    "location": "Remote",
+    "category": "Technology",
+    "experience": "Mid Level",
+    "salary": "$85,000 - $110,000",
+    "description": "Join our team as a Backend Developer to build robust server-side applications and APIs that power our products.",
+    "responsibilities": [
+      "Design and implement server-side logic",
+      "Build high-performance, reusable code and libraries",
+      "Optimize applications for maximum speed and scalability",
+      "Implement security and data protection measures"
+    ],
+    "requirements": [
+      "3+ years experience with server-side programming languages",
+      "Experience with database design and ORM technologies",
+      "Knowledge of API design and development",
+      "Understanding of server security and performance tuning"
+    ],
+    "postedDate": "2024-05-12",
+    "logo": "/placeholder.svg?height=80&width=80"
+  },
+  {
+    "id": "5",
+    "title": "Financial Analyst",
+    "company": "CapitalGrowth",
+    "location": "London",
+    "category": "Finance",
+    "experience": "Entry Level",
+    "salary": "$60,000 - $75,000",
+    "description": "We're looking for a Financial Analyst to join our team and help with financial planning, analysis, and reporting.",
+    "responsibilities": [
+      "Prepare financial reports and forecasts",
+      "Analyze financial data and trends",
+      "Support budget planning and management",
+      "Assist with financial audits and compliance"
+    ],
+    "requirements": [
+      "Bachelor's degree in Finance, Accounting, or related field",
+      "Strong analytical and problem-solving skills",
+      "Proficiency with Excel and financial modeling",
+      "Knowledge of financial principles and practices"
+    ],
+    "postedDate": "2024-05-08",
+    "logo": "/placeholder.svg?height=80&width=80"
+  },
+  {
+    "id": "6",
+    "title": "Product Manager",
+    "company": "InnovateCo",
+    "location": "Berlin",
+    "category": "Technology",
+    "experience": "Senior Level",
+    "salary": "$100,000 - $130,000",
+    "description": "We are seeking a Product Manager to lead the development and launch of innovative products that meet customer needs.",
+    "responsibilities": [
+      "Define product vision, strategy, and roadmap",
+      "Gather and prioritize product requirements",
+      "Work closely with engineering, design, and marketing teams",
+      "Analyze market trends and competitive landscape"
+    ],
+    "requirements": [
+      "5+ years of product management experience",
+      "Experience with agile development methodologies",
+      "Strong analytical and communication skills",
+      "Technical background or understanding of software development"
+    ],
+    "postedDate": "2024-05-03",
+    "logo": "/placeholder.svg?height=80&width=80"
+  },
+  {
+    "id": "7",
+    "title": "Customer Support Specialist",
+    "company": "HelpDesk",
+    "location": "Remote",
+    "category": "Customer Service",
+    "experience": "Entry Level",
+    "salary": "$45,000 - $55,000",
+    "description": "Join our customer support team to provide excellent service and support to our customers via email, chat, and phone.",
+    "responsibilities": [
+      "Respond to customer inquiries and resolve issues",
+      "Document customer interactions and feedback",
+      "Identify and escalate complex problems",
+      "Contribute to knowledge base and support documentation"
+    ],
+    "requirements": [
+      "1+ years of customer service experience",
+      "Strong communication and problem-solving skills",
+      "Ability to work independently and in a team",
+      "Familiarity with CRM systems and support tools"
+    ],
+    "postedDate": "2024-05-14",
+    "logo": "/placeholder.svg?height=80&width=80"
+  },
+  {
+    "id": "8",
+    "title": "Data Scientist",
+    "company": "DataInsight",
+    "location": "Tokyo",
+    "category": "Technology",
+    "experience": "Senior Level",
+    "salary": "$120,000 - $150,000",
+    "description": "We're looking for a Data Scientist to analyze complex data sets and develop models to solve business problems and drive decision-making.",
+    "responsibilities": [
+      "Collect, process, and analyze large datasets",
+      "Develop machine learning models and algorithms",
+      "Communicate findings and insights to stakeholders",
+      "Collaborate with engineering and product teams"
+    ],
+    "requirements": [
+      "5+ years of experience in data science or related field",
+      "Proficiency with Python, R, and SQL",
+      "Experience with machine learning frameworks and tools",
+      "Strong statistical and mathematical background"
+    ],
+    "postedDate": "2024-05-01",
+    "logo": "/placeholder.svg?height=80&width=80"
+  },
+  {
+    "id": "9",
+    "title": "HR Manager",
+    "company": "PeopleFirst",
+    "location": "Sydney",
+    "category": "Human Resources",
+    "experience": "Senior Level",
+    "salary": "$90,000 - $110,000",
+    "description": "We are seeking an HR Manager to oversee our human resources functions, including recruitment, employee relations, and HR policies.",
+    "responsibilities": [
+      "Develop and implement HR strategies and initiatives",
+      "Manage recruitment and onboarding processes",
+      "Handle employee relations and conflict resolution",
+      "Ensure compliance with employment laws and regulations"
+    ],
+    "requirements": [
+      "5+ years of HR management experience",
+      "Knowledge of HR best practices and employment laws",
+      "Strong interpersonal and communication skills",
+      "Bachelor's degree in Human Resources or related field"
+    ],
+    "postedDate": "2024-05-07",
+    "logo": "/placeholder.svg?height=80&width=80"
+  },
+  {
+    "id": "10",
+    "title": "Content Writer",
+    "company": "ContentCraft",
+    "location": "Remote",
+    "category": "Marketing",
+    "experience": "Mid Level",
+    "salary": "$60,000 - $80,000",
+    "description": "We're looking for a talented Content Writer to create engaging and informative content for our website, blog, and social media channels.",
+    "responsibilities": [
+      "Create high-quality written content for various platforms",
+      "Research industry topics and trends",
+      "Edit and proofread content for accuracy and clarity",
+      "Collaborate with marketing and design teams"
+    ],
+    "requirements": [
+      "3+ years of content writing experience",
+      "Strong writing, editing, and proofreading skills",
+      "SEO knowledge and experience",
+      "Ability to adapt writing style for different audiences"
+    ],
+    "postedDate": "2024-05-09",
+    "logo": "/placeholder.svg?height=80&width=80"
+  }
+]

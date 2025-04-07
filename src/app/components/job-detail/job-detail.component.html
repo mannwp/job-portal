@@ -1,0 +1,101 @@
+<div class="container mx-auto p-4">
+  <!-- Back Button -->
+  <app-button
+    variant="secondary"
+    (click)="goBack()"
+    class="btn btn-secondary mb-6"
+  >
+    ← Back to Jobs
+  </app-button>
+
+  <!-- Loading State -->
+  <div *ngIf="!job" class="flex items-center justify-center h-64">
+    <span class="text-muted-foreground">Loading job details...</span>
+  </div>
+
+  <!-- Job Details -->
+  <div *ngIf="job" class="flex flex-col lg:flex-row gap-6">
+    <!-- Main Content -->
+    <div class="lg:w-2/3">
+      <app-job-card
+        [job]="job"
+        [displayLogo]="true"
+        [displayDetails]="false"
+        [displayDescription]="true"
+        [displaySalary]="false"
+        [showFavorite]="true"
+        [showActions]="false"
+        (favorite)="toggleFavorite(job.id)"
+      >
+        <div class="mt-6">
+          <h2 class="text-xl font-semibold text-foreground">
+            Responsibilities
+          </h2>
+          <ul class="list-disc pl-5 mt-2 text-foreground">
+            <li
+              *ngFor="let responsibility of job.responsibilities"
+              class="mb-1"
+            >
+              {{ responsibility }}
+            </li>
+          </ul>
+        </div>
+        <div class="mt-6">
+          <h2 class="text-xl font-semibold text-foreground">Requirements</h2>
+          <ul class="list-disc pl-5 mt-2 text-foreground">
+            <li *ngFor="let requirement of job.requirements" class="mb-1">
+              {{ requirement }}
+            </li>
+          </ul>
+        </div>
+      </app-job-card>
+    </div>
+
+    <!-- Sidebar -->
+    <div class="lg:w-1/3 bg-card p-4 rounded-lg border border-border">
+      <h3 class="text-lg font-semibold text-foreground mb-4">Job Details</h3>
+      <ul class="space-y-2 text-muted-foreground">
+        <li><span class="mr-2">📍</span> Location: {{ job.location }}</li>
+        <li><span class="mr-2">🏢</span> Company: {{ job.company }}</li>
+        <li><span class="mr-2">👤</span> Experience: {{ job.experience }}</li>
+        <li><span class="mr-2">💰</span> Salary: {{ job.salary }}</li>
+        <li>
+          <span class="mr-2">📅</span> Posted Date:
+          {{ job.postedDate | date : "mediumDate" }}
+        </li>
+        <li><span class="mr-2">🏷️</span> Job Category: {{ job.category }}</li>
+      </ul>
+      <app-button (click)="applyForJob()" class="btn btn-primary mt-6 w-full"
+        >Apply Now</app-button
+      >
+      <div class="mt-6 p-4 bg-card rounded-lg border border-border text-center">
+        <h4 class="text-sm font-semibold text-foreground mb-2">
+          Share This Job
+        </h4>
+        <button
+          (click)="copyToClipboard()"
+          class="w-full flex items-center gap-2 p-2 bg-muted hover:bg-muted/80 rounded-md transition-colors cursor-pointer group"
+          title="Click to copy link"
+        >
+          <span class="text-sm text-muted-foreground truncate flex-1">{{
+            currentUrl
+          }}</span>
+          <svg
+            class="w-5 h-5 text-muted-foreground group-hover:text-foreground transition-colors"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

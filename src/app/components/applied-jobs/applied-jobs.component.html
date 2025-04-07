@@ -1,0 +1,54 @@
+<div class="container mx-auto p-4">
+  <h1 class="text-3xl font-bold tracking-tighter text-foreground mb-6">
+    Applied Jobs
+  </h1>
+  <div *ngIf="appliedJobs.length === 0" class="card p-6 text-center">
+    <p class="text-muted-foreground">You haven't applied to any jobs yet.</p>
+    <button (click)="goToJobs()" class="btn btn-primary mt-4 px-6 py-2">
+      Browse Jobs
+    </button>
+  </div>
+  <div *ngIf="appliedJobs.length > 0" class="space-y-6">
+    <app-job-card
+      *ngFor="let app of appliedJobs"
+      [job]="app.job"
+      [displayLogo]="true"
+      [displayDetails]="true"
+      [displayDescription]="false"
+      [displaySalary]="true"
+      [showFavorite]="false"
+      [showActions]="false"
+      (cardClick)="navigateToDetail(app.jobId)"
+    >
+      <div class="mt-4">
+        <p class="text-sm text-muted-foreground">
+          <strong>Name:</strong> {{ app.name }}
+        </p>
+        <p class="text-sm text-muted-foreground">
+          <strong>Email:</strong> {{ app.email }}
+        </p>
+        <p class="text-sm text-muted-foreground">
+          <strong>Experience:</strong> {{ app.experience }} years
+        </p>
+        <p class="text-sm text-muted-foreground">
+          <strong>Resume:</strong> {{ app.resume || "Not provided" }}
+        </p>
+        <p class="text-sm text-muted-foreground">
+          <strong>Cover Letter:</strong> {{ app.coverLetter || "Not provided" }}
+        </p>
+        <app-button
+          [routerLink]="['/jobs', app.jobId]"
+          class="btn btn-primary mt-4 inline-block"
+          >View Job Details</app-button
+        >
+      </div>
+    </app-job-card>
+  </div>
+  <app-button
+    variant="secondary"
+    (click)="goToJobs()"
+    class="btn btn-secondary mt-6"
+  >
+    Back to Jobs
+  </app-button>
+</div>

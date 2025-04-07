@@ -1,0 +1,250 @@
+<div class="container p-4 max-w-3xl mx-auto">
+  <div class="mb-6">
+    <a
+      (click)="goBack()"
+      class="text-muted-foreground hover:text-foreground cursor-pointer flex items-center"
+    >
+      <app-button variant="secondary"> ← Back to job details </app-button>
+    </a>
+  </div>
+  <!-- Back Button -->
+
+  <!-- Job Header -->
+  <div class="card bg-card p-6 mb-4" *ngIf="job">
+    <div class="flex items-center gap-4">
+      <div
+        class="w-12 h-12 bg-muted rounded-md flex items-center justify-center overflow-hidden"
+      >
+        <img
+          [src]="job.logo"
+          [alt]="job.company"
+          class="w-full h-full object-cover"
+          *ngIf="job.logo"
+        />
+        <span
+          class="text-2xl font-bold tracking-tighter text-muted-foreground"
+          *ngIf="!job.logo"
+          >{{ job.company[0] }}</span
+        >
+      </div>
+      <div>
+        <h2 class="text-xl font-bold tracking-tighter text-foreground">
+          {{ job.title }}
+        </h2>
+        <p class="text-muted-foreground">{{ job.company }}</p>
+        <div class="flex gap-2 mt-2">
+          <span
+            class="inline-flex items-center px-2 py-1 rounded-full text-xs bg-muted text-muted-foreground"
+          >
+            <svg
+              class="w-3 h-3 mr-1"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"
+                fill="currentColor"
+              />
+            </svg>
+            {{ job.location }}
+          </span>
+          <span
+            class="inline-flex items-center px-2 py-1 rounded-full text-xs bg-muted text-muted-foreground"
+          >
+            {{ job.experience }}
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Application Form -->
+  <div class="card bg-card p-6">
+    <h1 class="text-xl font-bold tracking-tighter text-foreground mb-2">
+      Apply for this position
+    </h1>
+    <p class="text-muted-foreground mb-6">
+      Fill out the form below to apply for the position.
+    </p>
+
+    <form [formGroup]="applyForm" (ngSubmit)="onSubmit()" class="space-y-6">
+      <!-- Full Name -->
+      <div>
+        <label for="name" class="block text-sm font-medium text-foreground mb-2"
+          >Full Name</label
+        >
+        <input
+          id="name"
+          formControlName="name"
+          type="text"
+          class="w-full px-4 py-2 border rounded-md bg-background text-foreground placeholder:text-muted-foreground focus:ring-2 focus:ring-ring"
+          placeholder="John Doe"
+          [class.border-red-500]="
+            applyForm.get('name')?.invalid && applyForm.get('name')?.touched
+          "
+        />
+        <p
+          class="text-red-500 text-sm mt-1"
+          *ngIf="applyForm.get('name')?.touched"
+        >
+          {{ getErrorMessage("name") }}
+        </p>
+      </div>
+
+      <!-- Email -->
+      <div>
+        <label
+          for="email"
+          class="block text-sm font-medium text-foreground mb-2"
+          >Email</label
+        >
+        <input
+          id="email"
+          formControlName="email"
+          type="email"
+          class="w-full px-4 py-2 border rounded-md bg-background text-foreground placeholder:text-muted-foreground focus:ring-2 focus:ring-ring"
+          placeholder="john@example.com"
+          [class.border-red-500]="
+            applyForm.get('email')?.invalid && applyForm.get('email')?.touched
+          "
+        />
+        <p
+          class="text-red-500 text-sm mt-1"
+          *ngIf="applyForm.get('email')?.touched"
+        >
+          {{ getErrorMessage("email") }}
+        </p>
+      </div>
+
+      <!-- Phone Number -->
+      <div>
+        <label
+          for="phone"
+          class="block text-sm font-medium text-foreground mb-2"
+          >Phone Number</label
+        >
+        <input
+          id="phone"
+          formControlName="phone"
+          type="tel"
+          class="w-full px-4 py-2 border rounded-md bg-background text-foreground placeholder:text-muted-foreground focus:ring-2 focus:ring-ring"
+          placeholder="(123) 456-7890"
+          [class.border-red-500]="
+            applyForm.get('phone')?.invalid && applyForm.get('phone')?.touched
+          "
+        />
+        <p
+          class="text-red-500 text-sm mt-1"
+          *ngIf="applyForm.get('phone')?.touched"
+        >
+          {{ getErrorMessage("phone") }}
+        </p>
+      </div>
+
+      <!-- Years of Experience -->
+      <div>
+        <label
+          for="experience"
+          class="block text-sm font-medium text-foreground mb-2"
+          >Years of Experience</label
+        >
+        <input
+          id="experience"
+          formControlName="experience"
+          type="text"
+          class="w-full px-4 py-2 border rounded-md bg-background text-foreground placeholder:text-muted-foreground focus:ring-2 focus:ring-ring"
+          placeholder="e.g., 3 years"
+          [class.border-red-500]="
+            applyForm.get('experience')?.invalid &&
+            applyForm.get('experience')?.touched
+          "
+        />
+        <p
+          class="text-red-500 text-sm mt-1"
+          *ngIf="applyForm.get('experience')?.touched"
+        >
+          {{ getErrorMessage("experience") }}
+        </p>
+      </div>
+
+      <!-- Resume -->
+      <div>
+        <label
+          for="resume"
+          class="block text-sm font-medium text-foreground mb-2"
+          >Resume</label
+        >
+        <div class="mt-1">
+          <label
+            class="w-full flex justify-between items-center px-4 py-2 border rounded-md bg-background text-foreground cursor-pointer hover:bg-muted/50"
+            [class.border-red-500]="
+              applyForm.get('resume')?.invalid &&
+              applyForm.get('resume')?.touched
+            "
+          >
+            <span class="text-muted-foreground">Choose File</span>
+            <input
+              id="resume"
+              formControlName="resume"
+              type="file"
+              class="hidden"
+              accept=".pdf,.docx"
+              (change)="onFileChange($event)"
+            />
+            <span class="text-muted-foreground file-name">No file chosen</span>
+          </label>
+        </div>
+        <p class="text-xs text-muted-foreground mt-2">
+          Accepted formats: PDF, DOCX (Max 5MB)
+        </p>
+        <p
+          class="text-red-500 text-sm mt-1"
+          *ngIf="applyForm.get('resume')?.touched"
+        >
+          {{ getErrorMessage("resume") }}
+        </p>
+      </div>
+
+      <!-- Cover Letter -->
+      <div>
+        <label
+          for="coverLetter"
+          class="block text-sm font-medium text-foreground mb-2"
+          >Cover Letter
+          <span class="text-muted-foreground"
+            >(minimum 100 characters)</span
+          ></label
+        >
+        <textarea
+          id="coverLetter"
+          formControlName="coverLetter"
+          class="w-full px-4 py-2 border rounded-md bg-background text-foreground placeholder:text-muted-foreground focus:ring-2 focus:ring-ring"
+          rows="6"
+          placeholder="Tell us why you're a good fit for this position..."
+          [class.border-red-500]="
+            applyForm.get('coverLetter')?.invalid &&
+            applyForm.get('coverLetter')?.touched
+          "
+        ></textarea>
+        <p
+          class="text-red-500 text-sm mt-1"
+          *ngIf="
+            applyForm.get('coverLetter')?.touched &&
+            applyForm.get('coverLetter')?.invalid
+          "
+        >
+          {{ getErrorMessage("coverLetter") }}
+        </p>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="flex justify-between gap-4 pt-4">
+        <app-button variant="secondary" type="button" (click)="goBack()">
+          Cancel
+        </app-button>
+        <app-button type="submit"> Submit Application </app-button>
+      </div>
+    </form>
+  </div>
+</div>
