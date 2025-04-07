@@ -41,6 +41,8 @@ export class JobCardComponent {
   }
 
   applyForJob() {
-    this.apply.emit();
+    if (!this.isApplied) {
+      this.apply.emit();
+    }
   }
 }

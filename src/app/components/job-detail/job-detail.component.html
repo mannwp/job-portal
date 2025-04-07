@@ -26,6 +26,7 @@
         [showFavorite]="true"
         [showActions]="false"
         (favorite)="toggleFavorite(job.id)"
+        (apply)="applyForJob()"
       >
         <div class="mt-6">
           <h2 class="text-xl font-semibold text-foreground">
@@ -65,9 +66,13 @@
         </li>
         <li><span class="mr-2">🏷️</span> Job Category: {{ job.category }}</li>
       </ul>
-      <app-button (click)="applyForJob()" class="btn btn-primary mt-6 w-full"
-        >Apply Now</app-button
+      <app-button
+        (click)="applyForJob()"
+        class="btn btn-primary mt-6 w-full"
+        [disabled]="isApplied"
       >
+        {{ isApplied ? "Already Applied" : "Apply Now" }}
+      </app-button>
       <div class="mt-6 p-4 bg-card rounded-lg border border-border text-center">
         <h4 class="text-sm font-semibold text-foreground mb-2">
           Share This Job

@@ -25,6 +25,7 @@ export class JobApplyComponent implements OnInit {
   job: any;
   maxFileSize = 5 * 1024 * 1024; // 5MB in bytes
   selectedFile: File | null = null;
+  isAlreadyApplied: boolean = false;
 
   constructor(
     private fb: FormBuilder,
@@ -43,6 +44,13 @@ export class JobApplyComponent implements OnInit {
     });
   }
 
+  private checkIfAlreadyApplied(jobId: string): boolean {
+    const applications = JSON.parse(
+      localStorage.getItem('applications') || '[]'
+    );
+    return applications.some((app: any) => app.jobId === jobId);
+  }
+
   ngOnInit() {
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme) {
@@ -50,6 +58,13 @@ export class JobApplyComponent implements OnInit {
     }
 
     if (this.jobId) {
+      // Check if already applied
+      if (this.checkIfAlreadyApplied(this.jobId)) {
+        this.isAlreadyApplied = true;
+        this.applyForm.disable();
+        return;
+      }
+
       this.jobService.getJobById(this.jobId).subscribe((job) => {
         this.job = job;
       });

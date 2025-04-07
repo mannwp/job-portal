@@ -16,12 +16,18 @@ export class JobDetailComponent implements OnInit {
   job: Job | undefined;
   isFavorite: boolean = false;
   currentUrl: string = '';
+  isApplied: boolean = false;
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private jobService: JobService
   ) {}
+
+  private checkIfApplied(jobId: string): boolean {
+    const applied = JSON.parse(localStorage.getItem('applications') || '[]');
+    return applied.some((app: any) => app.jobId === jobId);
+  }
 
   ngOnInit() {
     this.currentUrl = window.location.href;
@@ -33,6 +39,8 @@ export class JobDetailComponent implements OnInit {
           this.isFavorite = JSON.parse(
             localStorage.getItem('favorites') || '[]'
           ).includes(jobId);
+          this.isApplied = this.checkIfApplied(jobId);
+
           if (!job) {
             console.error(`Job with ID ${jobId} not found`);
             this.router.navigate(['/jobs']);
@@ -55,6 +63,9 @@ export class JobDetailComponent implements OnInit {
 
   applyForJob() {
     if (this.job) {
+      if (this.isApplied) {
+        return; // Don't allow applying if already applied
+      }
       this.router.navigate(['/apply', this.job.id]);
     }
   }
